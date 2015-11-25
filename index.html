@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+    <meta charset="utf-8">
+    <title>Bootstrap A4 WYSIWYG Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-a4-wysiwyg.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="http://127.0.0.1/public/edokumenty/assets/js/vendor/html5shiv.js"></script>
+      <script src="http://127.0.0.1/public/edokumenty/assets/js/vendor/respond.min.js"></script>
+    <![endif]-->
+        
+    </head>
+    <body>
+        <div id="wysiwygEditor">
+            <div class="wysiwyg-toolbar">
+                    <button class="btn btn-wysiwyg wysiwyg-change"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></button>
+                    <button class="btn btn-wysiwyg wysiwyg-change"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
+                    <span class="separator"></span>
+                    <div class="dropdown wysiwyg-font-family">
+                        <button class="btn btn-wysiwyg dropdown-toggle" style="margin-right:0" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-font" aria-hidden="true"></span>
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li style="font-family:Arial, sans-serif">Arial</li>
+                            <li style="font-family:Comic Sans MS, sans-serif">Comic Sans MS</li>
+                            <li style="font-family:Courier New, sans-serif">Courier New</li>
+                            <li style="font-family:Times New Roman, sans-serif">Times New Roman</li>
+                            <li style="font-family:Verdana, sans-serif">Verdana</li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown wysiwyg-font-size">
+                        <button class="btn btn-wysiwyg dropdown-toggle" style="margin-right:0" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li style="font-size:8pt">8pt</li>
+                            <li style="font-size:10pt">10pt</li>
+                            <li style="font-size:12pt">12pt</li>
+                            <li style="font-size:14pt">14pt</li>
+                            <li style="font-size:18pt">18pt</li>
+                            <li style="font-size:24pt">24pt</li>
+                            <li style="font-size:36pt">36pt</li>
+                        </ul>
+                    </div>
+                
+                    <button class="btn btn-wysiwyg wysiwyg-font-weight"><span class="glyphicon glyphicon-bold" aria-hidden="true"></span></button>
+                    <button class="btn btn-wysiwyg wysiwyg-font-style"><span class="glyphicon glyphicon-italic" aria-hidden="true"></span></button>
+                    <button class="btn btn-wysiwyg wysiwyg-color"><span class="glyphicon glyphicon-text-color" aria-hidden="true"></span></button>
+                    <button class="btn btn-wysiwyg wysiwyg-background"><span class="glyphicon glyphicon-text-background" aria-hidden="true"></span></button>
+                    
+                    <div class="dropdown wysiwyg-list-style-type">
+                        <button class="btn btn-wysiwyg dropdown-toggle" style="margin-right:0" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li style="font-size:8pt">8pt</li>
+                            <li style="font-size:10pt">10pt</li>
+                            <li style="font-size:12pt">12pt</li>
+                            <li style="font-size:14pt">14pt</li>
+                            <li style="font-size:18pt">18pt</li>
+                            <li style="font-size:24pt">24pt</li>
+                            <li style="font-size:36pt">36pt</li>
+                        </ul>
+                    </div>
+                    <span class="separator"></span>
+                    <button class="btn btn-wysiwyg wysiwyg-text-align"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></button>
+                    <button class="btn btn-wysiwyg wysiwyg-text-align"><span class="glyphicon glyphicon-align-center" aria-hidden="true"></span></button>
+                    <button class="btn btn-wysiwyg wysiwyg-text-align"><span class="glyphicon glyphicon-align-right" aria-hidden="true"></span></button>
+                    <button class="btn btn-wysiwyg wysiwyg-text-align"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></button>
+                    <span class="separator"></span>
+                    <button class="btn btn-wysiwyg wysiwyg-link"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button>
+                    <button class="btn btn-wysiwyg wysiwyg-image"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></button>
+            </div>
+            <div class="wysiwyg-page" contenteditable="true">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, <b>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</b> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </div>
+        </div>
+    </body>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="bootstrap-a4-wysiwyg.js"></script>
+</html>
