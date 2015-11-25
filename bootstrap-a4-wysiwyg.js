@@ -134,11 +134,19 @@
             });
             
             $('.wysiwyg-font-style').on('click', function(){
+                
+                console.log('fsgfd');
                 wrap('span', 'fontStyle', 'italic')
             });
             
-            $('.wysiwyg-font-style').on('click', function(){
-                wrap('span', 'fontStyle', 'italic')
+            $('.wysiwyg-color').on('click', function(){
+                
+                wrap('span', 'color', $(this).data('color'));
+            });
+            
+            $('.wysiwyg-background').on('click', function(){
+
+                wrap('span', 'backgroundColor', $(this).data('color'));
             });
             
         }
