@@ -19,6 +19,68 @@
     </head>
     <body>
         <div id="wysiwygEditor">
+            
+            <!-- Modal Image -->
+            <div class="modal fade" id="wysiwygImage" role="dialog">
+                <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Dodaj Obrazek</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--<div class="col-md-12">-->
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">URL</span>
+                                <input type="text" class="form-control wysiwyg-url" placeholder="http://">
+                            </div>
+                        <!--</div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Szerokość</span>
+                                <input type="text" class="form-control" placeholder="800px" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Wysokość</span>
+                                <input type="text" class="form-control" placeholder="800px" aria-describedby="basic-addon1">
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default wysiwyg-save-image" data-dismiss="modal">Zapisz</button>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            <!-- Modal Link -->
+            <div class="modal fade" id="wysiwygLink" role="dialog">
+                <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Dodaj Link</h4>
+                    </div>
+                    <div class="modal-body">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">URL</span>
+                                <input type="text" class="form-control wysiwyg-url" placeholder="http://">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default wysiwyg-save-link" data-dismiss="modal">Zapisz</button>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            
             <div class="wysiwyg-toolbar">
                     <button class="btn btn-wysiwyg wysiwyg-change"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></button>
                     <button class="btn btn-wysiwyg wysiwyg-change"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
@@ -35,17 +97,17 @@
                         </ul>
                     </div>
 
-                    <div class="dropdown wysiwyg-font-size">
+                    <div class="dropdown">
                         <button class="btn btn-wysiwyg dropdown-toggle" style="margin-right:0" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li style="font-size:8pt">8pt</li>
-                            <li style="font-size:10pt">10pt</li>
-                            <li style="font-size:12pt">12pt</li>
-                            <li style="font-size:14pt">14pt</li>
-                            <li style="font-size:18pt">18pt</li>
-                            <li style="font-size:24pt">24pt</li>
-                            <li style="font-size:36pt">36pt</li>
+                            <li class="wysiwyg-font-size" data-size="8pt" style="font-size:8pt">8pt</li>
+                            <li class="wysiwyg-font-size" data-size="10pt" style="font-size:10pt">10pt</li>
+                            <li class="wysiwyg-font-size" data-size="12pt" style="font-size:12pt">12pt</li>
+                            <li class="wysiwyg-font-size" data-size="14pt" style="font-size:14pt">14pt</li>
+                            <li class="wysiwyg-font-size" data-size="18pt" style="font-size:18pt">18pt</li>
+                            <li class="wysiwyg-font-size" data-size="24pt" style="font-size:24pt">24pt</li>
+                            <button class="wysiwyg-font-size" data-size="36pt" style="font-size:36pt">36pt</button>
                         </ul>
                     </div>
                 

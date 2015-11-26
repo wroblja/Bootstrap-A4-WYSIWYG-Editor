@@ -79,10 +79,29 @@
         var selection = Wysiwyg.selectionString;
         var selectedText = selection.extractContents();
         
-        element = document.createElement(tag);
-        element.style[property] = value;
-        element.appendChild(selectedText);
-        selection.insertNode(element);
+        
+        switch (tag) {
+            case 'a':
+                element = document.createElement(tag);
+                element.setAttribute('href', value)
+                element.setAttribute('class', property)
+                element.appendChild(selectedText);
+                selection.insertNode(element);
+                break;
+                
+            case 'img':    
+                element = document.createElement('span');
+                element.setAttribute('class', property)
+                element.appendChild(selectedText);
+                selection.insertNode(element);
+                break;
+                
+            default: 
+                element = document.createElement(tag);
+                element.style[property] = value;
+                element.appendChild(selectedText);
+                selection.insertNode(element);
+            }
     
     }
     
@@ -129,6 +148,10 @@
 
         if (Wysiwyg.selectionString) {
             
+            $('.wysiwyg-font-size').on('click', function(){
+                wrap('span', 'fontSize', $(this).data('size'))
+            });
+            
             $('.wysiwyg-font-weight').on('click', function(){
                 wrap('span', 'fontWeight', 'bold')
             });
@@ -148,6 +171,58 @@
 
                 wrap('span', 'backgroundColor', $(this).data('color'));
             });
+            
+            /**/
+            
+            $('.wysiwyg-text-align').on('click', function(){
+                
+                var type = $(this).find('span').attr('class');
+                type = type.replace('glyphicon glyphicon-align-', '');
+
+                wrap('p', 'textAlign', type);
+            });
+            
+            /**/
+            
+            $('.wysiwyg-link').on('click', function(){
+
+                $("#wysiwygLink").modal();
+                wrap('a', 'new-wysiwyg-link', '#');
+            });
+            
+            
+            $('.wysiwyg-image').on('click', function(){
+                
+                $("#wysiwygImage").modal();
+                wrap('img', 'new-wysiwyg-image', '');
+            });
+            
+            $('.wysiwyg-save-image').on('click', function(){
+                
+                var element = $('.new-wysiwyg-image');
+                var url = $('#wysiwygImage .wysiwyg-url').val();
+                
+                
+                element.after('<img src="'+ url +'" alt="obrazek" />');
+                element.remove('.new-wysiwyg-image');
+            });
+            
+            $('.wysiwyg-save-link').on('click', function(){
+                
+                var element = $('.new-wysiwyg-link');
+                var url = $('#wysiwygLink .wysiwyg-url').val();
+                
+                
+                console.log(url);
+                
+                element.attr('href', url);
+                element.removeAttr('class');
+                
+                /*if(element.parent().is('a')){
+                    element.unwrap();
+                }*/
+            });
+  
             
         }
 

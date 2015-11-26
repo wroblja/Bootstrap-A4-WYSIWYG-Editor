@@ -43,7 +43,6 @@ html, body{
     margin-left:10px;
     margin-right:20px;
 }
-
 .wysiwyg-page{
     background: #fff;
     color:#000;
@@ -54,6 +53,10 @@ html, body{
     margin: 0 auto;
     margin-bottom: 0.5cm;
     box-shadow: 0px 2px 3px #ddd;
+}
+
+.wysiwyg-page p{
+    margin:0;
 }
 
 /* ------- Color / Background ------- */
