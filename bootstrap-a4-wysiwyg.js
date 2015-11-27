@@ -8,6 +8,7 @@
         
         // global element references
         this.wysiwygHeight = null;
+        this.pagesgHeight = 1123;
         this.elementSize = null;
         this.toolBar = null;
         this.selectionString = null;
@@ -129,6 +130,55 @@
         }
     
     }
+    
+    function updateHeight(){
+        
+        var element = document.getElementsByClassName('wysiwyg-page-text')[0];
+        Wysiwyg.wysiwygHeight = element.offsetHeight;  
+        
+    }
+    
+    function addPage(){
+        
+        var element = document.getElementsByClassName('wysiwyg-page-background')[0];
+        var pages = element.childElementCount * 1123;
+        
+        if(Wysiwyg.wysiwygHeight > pages){
+            
+            var newPage = document.createElement('div');
+            newPage.setAttribute('class', 'wysiwyg-page-background-item')
+            element.appendChild(newPage);
+            
+            var newfooter = document.createElement('div');
+            newfooter.setAttribute('class', 'text-space-footer')
+            document.getElementsByClassName('wysiwyg-page-text')[0].appendChild(newfooter);
+            
+        }
+    
+    }
+    
+    function removePage(){
+        
+        var element = document.getElementsByClassName('wysiwyg-page-background')[0];
+        var pages = element.childElementCount * 1123;
+        
+        // gdy wysiwyg jest krótszy od ilości stron
+        if(Wysiwyg.wysiwygHeight < pages){
+            
+            // o ile jest krótszy?
+            
+
+            var sub = pages / Wysiwyg.wysiwygHeight;
+            
+            
+            
+            
+        }
+        // po każdem nowym elemencie aktualizować wysokość kontenera
+        // sprawdzić czy wysokość kontenera przektroczyła wymiary 1 strony
+    
+    }
+
 
 
 
@@ -145,21 +195,21 @@
     
 
     function initializeEvents() {
+        
 
         if (Wysiwyg.selectionString) {
             
             $('.wysiwyg-font-size').on('click', function(){
-                wrap('span', 'fontSize', $(this).data('size'))
+                wrap('span', 'fontSize', $(this).data('size'));
             });
             
             $('.wysiwyg-font-weight').on('click', function(){
-                wrap('span', 'fontWeight', 'bold')
+                wrap('span', 'fontWeight', 'bold');
             });
             
             $('.wysiwyg-font-style').on('click', function(){
                 
-                console.log('fsgfd');
-                wrap('span', 'fontStyle', 'italic')
+                wrap('span', 'fontStyle', 'italic');
             });
             
             $('.wysiwyg-color').on('click', function(){
@@ -212,19 +262,52 @@
                 var element = $('.new-wysiwyg-link');
                 var url = $('#wysiwygLink .wysiwyg-url').val();
                 
-                
-                console.log(url);
-                
                 element.attr('href', url);
-                element.removeAttr('class');
-                
-                /*if(element.parent().is('a')){
-                    element.unwrap();
-                }*/
+                element.removeAttr('class');   
+
             });
-  
+            
+            $(document).keypress(function(e) {
+                if(e.which == 13)  {
+                    updateHeight();
+                    addPage();
+                }
+            });
+            
+            $(document).keydown(function(e) {
+                if(e.keyCode == 8)  {
+                    updateHeight();
+                    removePage();
+                }
+            });
+            
+            
+            
+            // 1cm -> 37.79527559055 px
+            // 29.7 cm -> 1122.519685039 px
+            
+            
+            
+            /**/
+            
+            /*            
+            $('.close-wysiwyg-toolbar').on('click', function(){
+                $('.wysiwyg-toolbar').hide();
+            });
+            */
             
         }
+        
+        /*
+        $(window).scroll(function(){
+
+            if ($(this).scrollTop() > 95) {
+                $('.wysiwyg-toolbar').addClass('toolbar-fixed');
+            } else {
+                $('.wysiwyg-toolbar').removeClass('toolbar-fixed');
+            }
+        });
+        */
 
     }
              
@@ -235,8 +318,7 @@ var myWysiwyg = new Wysiwyg({
     template: 'flat'
 });
 
-
-var pageEditor = $('#wysiwygEditor');
+var pageEditor = $('.wysiwyg-page-text');
 
 pageEditor.on('mouseup', function() {
     myWysiwyg.select();
