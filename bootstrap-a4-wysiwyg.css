@@ -99,6 +99,12 @@ html, body{
     box-shadow: 0px 2px 3px #ddd;
 
 }
+.wysiwyg-page-background-item:after{
+    content: attr(data-pages);
+    position:absolute;
+    bottom:1.5cm;
+    right:1.5cm;
+}
 /* ------- Margin Option ------- */
 .wysiwyg-margin-option{
     display: block;
@@ -122,16 +128,18 @@ html, body{
 }
 .wysiwyg-page-margin-left{
     float: left;
-    margin-left: 2cm;
+    padding-left: 2cm;
+    margin-left:-1px;
     height: 29.7cm;
-    border-left: 1px dashed #eee;
+    border-right: 1px dashed #eee;
     box-sizing: border-box;
 }
 .wysiwyg-page-margin-right{
     float: right;
-    margin-right: 2cm;
+    padding-right: 2cm;
+    margin-right:-1px;
     height: 29.7cm;
-    border-right: 1px dashed #eee;
+    border-left: 1px dashed #eee;
     box-sizing: border-box;
 }
 

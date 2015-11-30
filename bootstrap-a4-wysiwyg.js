@@ -142,16 +142,19 @@
         
         var element = document.getElementsByClassName('wysiwyg-page-background')[0];
         var pages = element.childElementCount * 1123;
+        var pageNumber = element.getElementsByClassName('wysiwyg-page-background-item').length + 1;
         
         if(Wysiwyg.wysiwygHeight > pages){
             
+            
             var newPage = document.createElement('div');
-            newPage.setAttribute('class', 'wysiwyg-page-background-item')
+            newPage.setAttribute('class', 'wysiwyg-page-background-item');
+            newPage.dataset.pages = pageNumber;
             element.appendChild(newPage);
             
-            var newfooter = document.createElement('div');
+            /*var newfooter = document.createElement('div');
             newfooter.setAttribute('class', 'text-space-footer')
-            document.getElementsByClassName('wysiwyg-page-text')[0].appendChild(newfooter);
+            document.getElementsByClassName('wysiwyg-page-text')[0].appendChild(newfooter);*/
             
         }
     
@@ -161,25 +164,29 @@
         
         var element = document.getElementsByClassName('wysiwyg-page-background')[0];
         var pages = element.childElementCount * 1123;
+        var removePages;
+        
         
         // gdy wysiwyg jest krótszy od ilości stron
         if(Wysiwyg.wysiwygHeight < pages){
             
             // o ile jest krótszy?
-            
+            console.log(pages);
+            console.log(Wysiwyg.wysiwygHeight);
 
-            var sub = pages / Wysiwyg.wysiwygHeight;
+            var sub = pages - Wysiwyg.wysiwygHeight;
+            sub = sub / 1123;
             
-            
-            
-            
+            if(!(sub % 1)){
+                
+                element = element.getElementsByClassName('wysiwyg-page-background-item');
+                removePages = element[element.length-1];
+                removePages.parentNode.removeChild(removePages);
+                //element.slice(-sub).remove();
+                
+            } 
         }
-        // po każdem nowym elemencie aktualizować wysokość kontenera
-        // sprawdzić czy wysokość kontenera przektroczyła wymiary 1 strony
-    
     }
-
-
 
 
     // user options
@@ -199,9 +206,7 @@
 
         if (Wysiwyg.selectionString) {
             
-            $('.wysiwyg-font-size').on('click', function(){
-                wrap('span', 'fontSize', $(this).data('size'));
-            });
+            // dodać nasłuchiwanie wysokości edytoras, w razie jej zmiany uruchomic funkcje updateHeight itp
             
             $('.wysiwyg-font-weight').on('click', function(){
                 wrap('span', 'fontWeight', 'bold');
@@ -277,7 +282,7 @@
             $(document).keydown(function(e) {
                 if(e.keyCode == 8)  {
                     updateHeight();
-                    removePage();
+                    removePage();       
                 }
             });
             
